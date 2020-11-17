@@ -1,10 +1,8 @@
 /*
 scoreKeeper chooses number of players
-create a numOfPlayers variable = 0
-add number of players to numOfPlayers
-render number of players divs to page, equivalent to numOfPlayers
+create that many player divs
 
-scoreKeeper enteres each player name
+scoreKeeper enters each player name
 set playerName for each player
 
 -------------------------------
@@ -28,26 +26,36 @@ reset button
 
 let hole = 0;
 
-
-
-function getNumberOfPlayers () {
-    // return prompt("who are yi");
+function removeItem (item) {
+    $(item).remove();
 }
-// console.log(numOfPlayers);
-getNumberOfPlayers();
 
-$("button").on("click", function (e) {
-    e.preventDefault();
+function createPlayers () {
     let numOfPlayers = $("#how-many-players").val();
     let playerNumber = 1;
     $("#players").empty();
     for (let i = 0; i < numOfPlayers; i++) {
-        let newDiv = $("<div class='col-md-2'>");
+        let newDiv = $("<div class='col-md-2 border border-dark bg-success player-div'>");
         newDiv.attr("id", "player" + playerNumber);
         newDiv.text("Player " + playerNumber);
         playerNumber++;
         $("#players").append(newDiv);
-
+    
     }
     $("#how-many-players").val("");
-})
+    removeItem($(".form"));
+}
+
+$("button").on("click", function (e) {
+    e.preventDefault();
+    createPlayers();
+});
+
+function editName () {}
+
+$(".player-div").on("click", function (e) {
+    e.preventDefault();
+    // editName();
+
+});
+
