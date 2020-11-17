@@ -26,16 +26,28 @@ reset button
 
 */
 
-let numOfPlayers = $("#how-many-players").val();
 let hole = 0;
-let newDiv = $("#<div>");
+
+
 
 function getNumberOfPlayers () {
-    return prompt("who are yi");
+    // return prompt("who are yi");
 }
-console.log(numOfPlayers)
+// console.log(numOfPlayers);
 getNumberOfPlayers();
 
-$(button).on("click", function () {
-    console.log(numOfPlayers);
+$("button").on("click", function (e) {
+    e.preventDefault();
+    let numOfPlayers = $("#how-many-players").val();
+    let playerNumber = 1;
+    $("#players").empty();
+    for (let i = 0; i < numOfPlayers; i++) {
+        let newDiv = $("<div class='col-md-2'>");
+        newDiv.attr("id", "player" + playerNumber);
+        newDiv.text("Player " + playerNumber);
+        playerNumber++;
+        $("#players").append(newDiv);
+
+    }
+    $("#how-many-players").val("");
 })
