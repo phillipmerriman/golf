@@ -35,12 +35,11 @@ function createPlayers () {
     let playerNumber = 1;
     $("#players").empty();
     for (let i = 0; i < numOfPlayers; i++) {
-        let newDiv = $("<div class='col-md-2 border border-dark bg-success player-div'>");
+        let newDiv = $("<div class='col-md-2 player-div'>");
         newDiv.attr("id", "player" + playerNumber);
         newDiv.text("Player " + playerNumber);
         playerNumber++;
         $("#players").append(newDiv);
-    
     }
     $("#how-many-players").val("");
     removeItem($(".form"));
