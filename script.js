@@ -38,6 +38,12 @@ function createPlayers () {
         let newDiv = $("<div class='col-md-2 player-div'>");
         newDiv.attr("id", "player" + playerNumber);
         newDiv.text("Player " + playerNumber);
+        newDiv.append(`<div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="strokes this hole" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Submit</button>
+        </div>
+      </div>`)
         playerNumber++;
         $("#players").append(newDiv);
     }
